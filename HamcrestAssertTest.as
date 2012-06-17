@@ -14,14 +14,14 @@ package {
 		public function testBetweenInclusive() : void {
 			assertThat(3, between(2, 4));   
 			assertThat(4, not(between(2, 3)));
-			assertThat(2.5, not(between(2, 3)));  // example of a failure
+			assertThat("This is an intentional example of a failure:", 2.5, not(between(2, 3))); 
 		}
 		
 		/**
 		 * Copied from org.hamcrest.object.IsEqualTest.as
-		 * AsUnit detects function names beginning with 'test'.
+		 * AsUnit detects non-static function names beginning with 'test'.
 		 */
-		public function testRecursivelyTestsElementsOfArrays() : void {
+		public function testRecursivelyComparesElementsOfArrays() : void {
 			var i1 : Array = [[1, 2], [3, 4]];
 			var i2 : Array = [[1, 2], [3, 4]];
 			var i3 : Array = [[5, 6], [7, 8]];
@@ -31,7 +31,7 @@ package {
 			assertThat(i2, equalTo(i1));
 			assertThat(i3, not(equalTo(i1)));
 			assertThat(i4, not(equalTo(i1)));
-			assertThat(i4, equalTo(i1));  // example of a failure
+			assertThat("This is an intentional example of a failure:", i4, equalTo(i1));
 		}
     }
 }
